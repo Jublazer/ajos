@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+
+/* New project Starting here */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
