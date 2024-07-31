@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 // import Head from 'next/head';
 import Navbar from '../components/Navbar';
 
@@ -18,10 +18,7 @@ const Dashboard = () => {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      <Head>
         <title>Dashboard - Thrift Contributions</title>
-      </Head>
-
       <Navbar />
 
       <div className="p-8 mt-16">

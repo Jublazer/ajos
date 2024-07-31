@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Navbar from './components/Navbar'
 
 export default function Home() {
   return (
@@ -8,18 +9,7 @@ export default function Home() {
       </Head>
 
       {/* Navbar */}
-      <nav className="fixed top-0 w-full bg-black bg-opacity-75 shadow-lg py-4 px-8 flex justify-between items-center z-50">
-        <div className="text-yellow-500 text-xl font-bold">ThriftContributions</div>
-        <ul className="flex space-x-8">
-          <li className="text-white hover:text-yellow-500"><a href="#">Home</a></li>
-          <li className="text-white hover:text-yellow-500"><a href="#">Ajo</a></li>
-          <li className="text-white hover:text-yellow-500"><a href="#">Biller</a></li>
-        </ul>
-        <div className="flex space-x-4">
-          <a href="/register" className="text-yellow-500 hover:text-white">Register</a>
-          <a href="/login" className="text-yellow-500 hover:text-white">Login</a>
-        </div>
-      </nav>
+      {<Navbar />}
 
       {/* Main Content */}
       <main className="pt-24 px-8 md:px-16 lg:px-24">
