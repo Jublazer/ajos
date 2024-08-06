@@ -1,52 +1,62 @@
 "use client"
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation'; // Correct usage for the 'app' directory
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
+    // Check if the user is authenticated
     const token = localStorage.getItem('authToken');
-    if (token) {
-      setIsLoggedIn(true);
-    }
+    setIsAuthenticated(!!token);
   }, []);
 
   const handleLogout = () => {
+    // Clear the authentication token and redirect to the homepage
     localStorage.removeItem('authToken');
-    setIsLoggedIn(false);
+    setIsAuthenticated(false);
+    router.push('/');
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-black bg-opacity-75 shadow-lg py-4 px-8 flex justify-between items-center z-50">
-      <div className="text-yellow-500 text-xl font-bold">ThriftContributions</div>
-      <ul className="flex space-x-8">
-        <li className="text-white hover:text-yellow-500">
-          <Link href="/" legacyBehavior><a>Home</a></Link>
-        </li>
-        <li className="text-white hover:text-yellow-500">
-          <Link href="/ajo" legacyBehavior><a>Ajo</a></Link>
-        </li>
-        <li className="text-white hover:text-yellow-500">
-          <Link href="/biller" legacyBehavior><a>Biller</a></Link>
-        </li>
-      </ul>
-      <div className="flex space-x-4">
-        {!isLoggedIn ? (
-          <>
-            <Link href="/register" legacyBehavior>
-              <a className="text-yellow-500 hover:text-white">Register</a>
-            </Link>
-            <Link href="/login" legacyBehavior>
-              <a className="text-yellow-500 hover:text-white">Login</a>
-            </Link>
-          </>
-        ) : (
-          <button onClick={handleLogout} className="text-yellow-500 hover:text-white">Logout</button>
-        )}
+    <nav className="bg-black p-4 fixed top-0 left-0 right-0 z-10">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/" className="text-yellow-500 font-bold text-xl">
+          Thrift Contributions
+        </Link>
+        <div>
+          <Link href="/" className="text-white mx-2">
+            Home
+          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link href="/ajo" className="text-white mx-2">
+                Ajo
+              </Link>
+              <Link href="/biller" className="text-white mx-2">
+                Biller
+              </Link>
+              <button onClick={handleLogout} className="text-white mx-2">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="text-white mx-2">
+                Login
+              </Link>
+              <Link href="/register" className="text-white mx-2">
+                Register
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   );
 };
 
 export default Navbar;
+
