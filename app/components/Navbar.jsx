@@ -6,6 +6,24 @@ import { useEffect, useState } from 'react';
 const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
+  const [theme, setTheme] = useState('light');
+
+
+  useEffect(() => {
+    // Set the initial theme based on user's preference or default to light
+    const userTheme = localStorage.getItem('theme') || 'light';
+    setTheme(userTheme);
+    document.documentElement.setAttribute('data-theme', userTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+
 
   useEffect(() => {
     // Check if the user is authenticated
@@ -26,19 +44,36 @@ const Navbar = () => {
         <Link href="/" className="text-yellow-500 font-bold text-xl">
           Thrift Contributions
         </Link>
+        <div className="tabs tabs-bordered">
+          <button
+            className={`tab ${theme === 'light' ? 'tab-active' : ''}`}
+            onClick={toggleTheme}
+          >
+            Light
+          </button>
+          <button
+            className={`tab ${theme === 'dark' ? 'tab-active' : ''}`}
+            onClick={toggleTheme}
+          >
+            Dark
+          </button>
+        </div>
         <div>
-          <Link href="/" className="text-white mx-2">
+          <Link href="/" className="text-white mx-2 hover:text-yellow-600 active:text-yellow-500">
             Home
           </Link>
           {isAuthenticated ? (
             <>
-              <Link href="/ajo" className="text-white mx-2">
+              <Link href="/dashboard" className="text-white mx-2  hover:text-yellow-600 active:text-yellow-500">
+                Dashboard
+              </Link>
+              <Link href="/ajo" className="text-white mx-2  hover:text-yellow-600 active:text-yellow-500">
                 Ajo
               </Link>
-              <Link href="/biller" className="text-white mx-2">
+              <Link href="/biller" className="text-white mx-2  hover:text-yellow-600 active:text-yellow-500">
                 Biller
               </Link>
-              <button onClick={handleLogout} className="text-white mx-2">
+              <button onClick={handleLogout} className="text-white mx-2  hover:text-yellow-600 active:text-yellow-500">
                 Logout
               </button>
             </>

@@ -28,23 +28,40 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  theme: {
+    extend: {},
+  },
+  plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
-        mytheme: {
-          "primary": "black",
-          "secondary": "text-yellow-500",
-          "accent": "#37cdbe",
-          "neutral": "teal",
-          "base-100": "gray",
+        light: {
+          primary: "#3498db",
+          secondary: "#2ecc71",
+          accent: "#f39c12",
+          neutral: "#95a5a6",
+          "base-100": "#ffffff",
+          info: "#3b82f6",
+          success: "#22c55e",
+          warning: "#fbbf24",
+          error: "#ef4444",
         },
       },
-      "dark",
-      "cupcake",
+      {
+        dark: {
+          primary: "#3498db",
+          secondary: "#2ecc71",
+          accent: "#f39c12",
+          neutral: "#1f2937",
+          "base-100": "#111827",
+          info: "#3b82f6",
+          success: "#22c55e",
+          warning: "#fbbf24",
+          error: "#ef4444",
+        },
+      },
     ],
-  },
-  plugins: [
-    require('daisyui'),
-  ],
+    darkTheme: "dark", // Default dark theme
+  }
 }
 
