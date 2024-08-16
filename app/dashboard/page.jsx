@@ -17,23 +17,25 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen" data-theme="mytheme">
       <Navbar />
       <div className="container mx-auto p-8 mt-16">
         <h1 className="text-3xl font-bold text-yellow-500 mb-4">Dashboard</h1>
         <p>Welcome to the dashboard! You are successfully logged in.</p>
       </div>
-      <div className="p-8">
-      <h1 className="text-2xl font-semibold mb-4">Main Account Balance</h1>
-      <div className="bg-white shadow-md p-6 rounded-lg mb-6">
-        <h2 className="text-xl font-bold">₦100,000.00</h2>
-      </div>
+      <div className="p-8 flex items-center justify-center">
+        
+        <div className="bg-white w-2/4 shadow-md text-orange-600 p-6 rounded-lg mb-6 min-w-2/5" >
+          <h1 className="text-2xl text-orange-600 font-semibold mb-4">Main Account Balance</h1>
+          <h2 className="text-xl font-bold">₦100,000.00</h2>
+          <div className="flex space-x-4">
+            <Deposit />
+            <Withdraw />
+            <Transfer />
+          </div>
+        </div>
 
-      <div className="flex space-x-4">
-        <Deposit />
-        <Withdraw />
-        <Transfer />
-      </div>
+        
       </div>
     </div>
   );

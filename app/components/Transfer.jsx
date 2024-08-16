@@ -30,7 +30,7 @@ const Transfer = () => {
 
   return (
     <>
-      <button className="btn btn-accent" onClick={handleOpenModal}>
+      <button className="btn btn-accent btn-outline" onClick={handleOpenModal}>
         Transfer
       </button>
 

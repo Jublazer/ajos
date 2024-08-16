@@ -30,7 +30,7 @@ const Deposit = () => {
 
   return (
     <>
-      <button className="btn btn-primary" onClick={handleOpenModal}>
+      <button className="btn btn-primary btn-outline" onClick={handleOpenModal}>
         Deposit
       </button>
 

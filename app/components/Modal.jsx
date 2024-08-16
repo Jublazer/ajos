@@ -7,12 +7,12 @@ const Modal = ({ title, body, buttons, isOpen, onClose }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg shadow-lg max-w-lg w-full p-6">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold">{title}</h2>
+          <h2 className="text-xl text-orange-600 font-semibold">{title}</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
             ✖
           </button>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 text-black-600">
           {body}
         </div>
         <div className="mt-6 flex justify-end space-x-2">
