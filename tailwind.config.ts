@@ -33,7 +33,7 @@ module.exports = {
       {
         mytheme: {
           "primary": "black",
-          "secondary": "yellow",
+          "secondary": "text-yellow-500",
           "accent": "#37cdbe",
           "neutral": "teal",
           "base-100": "gray",
