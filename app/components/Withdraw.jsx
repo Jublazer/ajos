@@ -30,7 +30,7 @@ const Withdraw = () => {
 
   return (
     <>
-      <button className="btn btn-secondary btn-outline" onClick={handleOpenModal}>
+      <button className="btn btn-md btn-black btn-outline" onClick={handleOpenModal}>
         Withdraw
       </button>
 

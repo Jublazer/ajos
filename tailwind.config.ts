@@ -35,10 +35,17 @@ module.exports = {
   daisyui: {
     themes: [
       {
+        mytheme: {
+          "primary": "#a991f7",
+          "secondary": "#f6d860",
+          "accent": "#37cdbe",
+          "neutral": "#3d4451",
+          "base-100": "#ffffff",
+        },
         light: {
           primary: "#3498db",
           secondary: "#2ecc71",
-          accent: "#f39c12",
+          accent: "#11151B",
           neutral: "#95a5a6",
           "base-100": "#ffffff",
           info: "#3b82f6",
